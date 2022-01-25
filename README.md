@@ -4,9 +4,11 @@ https://www.draugrswap.finance Feel free to read the code. More details coming s
 
 ## Deployed Contracts / Hash
 
-### BSCMAINNET
+### FTM MAINNET
 
-- DraugrToken - https://bscscan.com/token/draugr-token-address
-- MasterChef - https://bscscan.com/address/0xEf6e807fD2c0Ef5883A03Ed1b962333E8C9b725f
-- Timelock - https://bscscan.com/address/0xc9d5dE27Cffa9F249211ac2CF5fD1f789d7018D5
-- MultiCall - https://bscscan.com/address/0x1ee38d535d541c55c9dae27b12edf090c608e6fb
+### FTM TESTNET
+
+- DraugrToken - https://testnet.ftmscan.com/token/0x1D34e3fC62bC303aD20e09ef622e2CB9F90d8e8A
+- MasterChef - https://testnet.ftmscan.com/address/0x9DFf893BBCE5E1aFe42FffcB4cbceFcF644330ff
+- Timelock - https://testnet.ftmscan.com/address/0x724850136C2B4c13E73E4daDdb0B92C5A40F5A1d
+- MultiCall - https://testnet.ftmscan.com/address/0x6eEa1D600e42D54A720a8E1b13db036559dD07D1
