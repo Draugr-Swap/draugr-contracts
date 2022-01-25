@@ -15,7 +15,27 @@ async function main() {
 
   // We get the contract to deploy
 
-  
+  const DraugrTokenFactory = await ethers.getContractFactory("DraugrToken");
+  const DraugrToken = await DraugrTokenFactory.deploy();
+  await DraugrToken.deployed();
+  console.log("DraugrToken deployed to:", DraugrToken.address);
+
+  const MasterChefFactory = await ethers.getContractFactory("MasterChef");
+  const MasterChef = await MasterChefFactory.deploy(DraugrToken.address, "0xe6C2D1D7f6EE9E4eE9F8B865D9b5931C06C9c7d1", "0x44A33a4a822194d3C8402629932dd88B0FF49b09", 1000000000000000000, 5045936);
+  await MasterChef.deployed();
+  console.log("MasterChef deployed to:", MasterChef.address);
+
+  const TimelockFactory = await ethers.getContractFactory("Timelock");
+  const Timelock = await TimelockFactory.deploy("0xe6C2D1D7f6EE9E4eE9F8B865D9b5931C06C9c7d1", 86400);
+  await Timelock.deployed();
+  console.log("Timelock deployed to:", Timelock.address);
+
+  const MultiCallFactory = await ethers.getContractFactory("MultiCall");
+  const MultiCall = await MultiCallFactory.deploy();
+  await MultiCall.deployed();
+  console.log("MultiCall deployed to:", MultiCall.address);
+
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
