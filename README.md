@@ -6,10 +6,10 @@ https://www.draugrswap.finance Feel free to read the code. More details coming s
 
 ### FTM MAINNET
 
-- DraugrToken - https://testnet.ftmscan.com/token/0x7D572502Bd99f8830F32F2F4CF0fC8767282A992
-- MasterChef - https://testnet.ftmscan.com/address/0xbEB1859D6259025bCAfdb771868a884Cd27Ac4f7
-- Timelock - https://testnet.ftmscan.com/address/0x928bACe156cB1f31fdc96436f6F33a6E5510047E
-- MultiCall - https://testnet.ftmscan.com/address/0x00F8B38b4a2a1F7AA4e4CF0EE62bd02Fe23F542e
+- DraugrToken - https://ftmscan.com/token/0x7D572502Bd99f8830F32F2F4CF0fC8767282A992
+- MasterChef - https://ftmscan.com/address/0xbEB1859D6259025bCAfdb771868a884Cd27Ac4f7
+- Timelock - https://ftmscan.com/address/0x928bACe156cB1f31fdc96436f6F33a6E5510047E
+- MultiCall - https://ftmscan.com/address/0x00F8B38b4a2a1F7AA4e4CF0EE62bd02Fe23F542e
 
 ### FTM TESTNET
 
