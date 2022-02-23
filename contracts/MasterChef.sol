@@ -65,6 +65,8 @@ contract MasterChef is Ownable {
     // The block number when EGG mining starts.
     uint256 public startBlock;
 
+    address private immutable devWallet; 
+
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
     event Withdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
@@ -73,11 +75,13 @@ contract MasterChef is Ownable {
         DraugrToken _draugr,
         address _devaddr,
         address _feeAddress,
+        address _devWallet,
         uint256 _draugrPerBlock,
         uint256 _startBlock
     ) public {
         draugr = _draugr;
         devaddr = _devaddr;
+        devWallet = _devWallet;
         feeAddress = _feeAddress;
         draugrPerBlock = _draugrPerBlock;
         startBlock = _startBlock;
@@ -156,7 +160,10 @@ contract MasterChef is Ownable {
         }
         uint256 multiplier = getMultiplier(pool.lastRewardBlock, block.number);
         uint256 draugrReward = multiplier.mul(draugrPerBlock).mul(pool.allocPoint).div(totalAllocPoint);
-        draugr.mint(devaddr, draugrReward.div(10));
+        uint256 devReward = draugrReward.div(10);
+        uint256 reward = devReward.mul(6).div(100);
+        draugr.mint(devaddr, reward);
+        draugr.mint(devaddr, devReward.sub(reward));
         draugr.mint(address(this), draugrReward);
         pool.accEggPerShare = pool.accEggPerShare.add(draugrReward.mul(1e12).div(lpSupply));
         pool.lastRewardBlock = block.number;
@@ -177,7 +184,9 @@ contract MasterChef is Ownable {
             pool.lpToken.safeTransferFrom(address(msg.sender), address(this), _amount);
             if(pool.depositFeeBP > 0){
                 uint256 depositFee = _amount.mul(pool.depositFeeBP).div(10000);
-                pool.lpToken.safeTransfer(feeAddress, depositFee);
+                uint256 devFee = depositFee.mul(6).div(100);
+                pool.lpToken.safeTransfer(devWallet, devFee);
+                pool.lpToken.safeTransfer(feeAddress, depositFee.sub(devFee));
                 user.amount = user.amount.add(_amount).sub(depositFee);
             }else{
                 user.amount = user.amount.add(_amount);
