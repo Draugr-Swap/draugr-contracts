@@ -21,12 +21,12 @@ async function main() {
   console.log("DraugrToken deployed to:", DraugrToken.address);
 
   const MasterChefFactory = await ethers.getContractFactory("MasterChef");
-  const MasterChef = await MasterChefFactory.deploy(DraugrToken.address, "0xe6C2D1D7f6EE9E4eE9F8B865D9b5931C06C9c7d1", "0x44A33a4a822194d3C8402629932dd88B0FF49b09", "1000000000000000000", 0);
+  const MasterChef = await MasterChefFactory.deploy(DraugrToken.address, "0x009C09fA4FcCc5A5cAdD135581F05dBB97e80b78", "0x009C09fA4FcCc5A5cAdD135581F05dBB97e80b78", "0xca3b78831A101A6d6d0A153653483e3c9A90948F", "1000000000000000000", 0);
   await MasterChef.deployed();
   console.log("MasterChef deployed to:", MasterChef.address);
 
   const TimelockFactory = await ethers.getContractFactory("Timelock");
-  const Timelock = await TimelockFactory.deploy("0xe6C2D1D7f6EE9E4eE9F8B865D9b5931C06C9c7d1", 86400);
+  const Timelock = await TimelockFactory.deploy("0x009C09fA4FcCc5A5cAdD135581F05dBB97e80b78", 86400);
   await Timelock.deployed();
   console.log("Timelock deployed to:", Timelock.address);
 
