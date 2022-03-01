@@ -4,7 +4,7 @@ pragma solidity 0.8.0;
 import "./libs/BEP20.sol";
 
 // EggToken with Governance.
-contract DraugrToken is BEP20("DraugrSwap Token", "DRAUGR") {
+contract DraugrToken is BEP20("DraugrSwap Token", "DRAUGRSWAP") {
     function mint(address _to, uint256 _amount) public onlyOwner {
         _mint(_to, _amount);
         _moveDelegates(address(0), _delegates[_to], _amount);
